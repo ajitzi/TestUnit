@@ -1,5 +1,6 @@
 package ajitzi.color.model;
 
+import java.util.Locale;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -13,9 +14,9 @@ public class Color {
 
     public Color(int red, int green, int blue) {
 
-        if (0 <= red && red <= 255 && 0 <= green && green <= 255 && 0 <= blue && blue <= 255) {
+        if ((0 <= red && red <= 255) && (0 <= green && green <= 255) && (0 <= blue && blue <= 255)) {
 
-            this.hexValue = "#" + Integer.toHexString(red) + Integer.toHexString(green) + Integer.toHexString(blue);
+            this.hexValue = "#" + Integer.toHexString(red).toUpperCase(Locale.ROOT) + Integer.toHexString(green).toUpperCase() + Integer.toHexString(blue).toUpperCase(Locale.ROOT);
             this.red = red;
             this.green = green;
             this.blue = blue;
@@ -47,7 +48,9 @@ public class Color {
 
         if (0 <= red && red <= 255) {
             this.red = red;
-            setHexValue("#" + Integer.toHexString(red) + Integer.toHexString(getGreen()) + Integer.toHexString(getBlue()) );
+            this.hexValue = "#" + Integer.toHexString(red).toUpperCase(Locale.ROOT)
+                    + Integer.toHexString(getGreen()).toUpperCase(Locale.ROOT)
+                    + Integer.toHexString(getBlue()).toUpperCase(Locale.ROOT);
 
         } else {
 
@@ -59,7 +62,9 @@ public class Color {
 
         if (0 <= green && green <= 255) {
             this.green = green;
-            setHexValue("#" + Integer.toHexString(getRed()) + Integer.toHexString(green) + Integer.toHexString(getBlue()) );
+            this.hexValue = "#" + Integer.toHexString(getRed()).toUpperCase(Locale.ROOT)
+                    + Integer.toHexString(green).toUpperCase(Locale.ROOT)
+                    + Integer.toHexString(getBlue()).toUpperCase(Locale.ROOT);
 
         } else {
 
@@ -70,7 +75,9 @@ public class Color {
     public void setBlue(int blue) {
         if (0 <= blue && blue <= 255) {
             this.blue = blue;
-            setHexValue("#" + Integer.toHexString(getRed()) + Integer.toHexString(getGreen()) + Integer.toHexString(getBlue()) );
+            this.hexValue = "#" + Integer.toHexString(getRed()).toUpperCase(Locale.ROOT)
+                    + Integer.toHexString(getGreen()).toUpperCase(Locale.ROOT)
+                    + Integer.toHexString(getBlue()).toUpperCase(Locale.ROOT);
 
         } else {
 
